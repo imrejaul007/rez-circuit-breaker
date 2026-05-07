@@ -1,0 +1,16 @@
+# Render Blueprint for REZ-circuit-breaker
+
+services:
+  - type: web
+    name: rez-circuit-breaker
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
